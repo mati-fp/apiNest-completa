@@ -11,25 +11,37 @@ import { Tag } from './courses/entities/tag.entity';
   imports: [CoursesModule,
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-    imports: [ConfigModule],
-    inject: [ConfigService],
-    useFactory: async (configService: ConfigService) => {
-      return {
-        type: configService.get('TYPEORM_CONNECTION') as any,
-        host: configService.get('TYPEORM_HOST') as any,
-        port: configService.get('TYPEORM_PORT') as any,
-        username: configService.get('TYPEORM_USERNAME') as any,
-        password: configService.get('TYPEORM_PASSWORD') as any,
-        database: configService.get('TYPEORM_DATABASE') as any,
-        entities: [Course, Tag],
-        logging: true,
-        cli: {
-          migrationsDir: configService.get('TYPEORM_MIGRATIONS_DIR') as any,
-        }
-      }
-    }  
-  })],
+      type: 'postgres',
+      host: 'db',
+      port: 5432,
+      username: 'postgres',
+      password: 'docker',
+      database: 'cursonestjs',
+      entities: [__dirname + '/**/*.entity.js'],
+      autoLoadEntities: false,
+      synchronize: false,
+    })
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
+
+
+// @Module({
+//   imports: [CoursesModule,
+//     ConfigModule.forRoot(),
+//     TypeOrmModule.forRoot({
+//       type: 'postgres',
+//       host: 'db',
+//       port: 5432,
+//       username: 'postgres',
+//       password: 'docker',
+//       database: 'cursonestjs',
+//       entities: [__dirname + `/**/*.entity{.js, .ts}`],
+
+//   })],
+//   controllers: [AppController],
+//   providers: [AppService],
+// })
+// export class AppModule {}
