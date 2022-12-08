@@ -6,7 +6,7 @@ module.exports = {
     password: 'docker',
     database: 'cursonestjs',
     entities: ['dist/**/*.entity.js'],
-    migrations: [`dist/migrations/*{.js, .ts}`],
+    migrations: [`dist/migrations/*{.js}`],
     cli : {
         migrationsDir: 'src/migrations'
     }
