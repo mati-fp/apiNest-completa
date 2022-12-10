@@ -17,7 +17,7 @@ import { Tag } from './courses/entities/tag.entity';
       username: 'postgres',
       password: 'docker',
       database: 'cursonestjs',
-      entities: [__dirname + '/**/*.entity.js'],
+      entities: [__dirname + '/**/*.entity.ts'],
       migrations: [`dist/migrations/*{.js, .ts}`],
       autoLoadEntities: false,
       synchronize: false,
