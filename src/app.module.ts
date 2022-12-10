@@ -17,7 +17,7 @@ import { Tag } from './courses/entities/tag.entity';
       username: 'postgres',
       password: 'docker',
       database: 'cursonestjs',
-      entities: [__dirname + '/**/*.entity.ts'],
+      entities: [__dirname + '/**/*.entity.js'],
       migrations: [`dist/migrations/*{.js, .ts}`],
       autoLoadEntities: false,
       synchronize: false,
@@ -28,21 +28,3 @@ import { Tag } from './courses/entities/tag.entity';
 })
 export class AppModule {}
 
-
-// @Module({
-//   imports: [CoursesModule,
-//     ConfigModule.forRoot(),
-//     TypeOrmModule.forRoot({
-//       type: 'postgres',
-//       host: 'db',
-//       port: 5432,
-//       username: 'postgres',
-//       password: 'docker',
-//       database: 'cursonestjs',
-//       entities: [__dirname + `/**/*.entity{.js, .ts}`],
-
-//   })],
-//   controllers: [AppController],
-//   providers: [AppService],
-// })
-// export class AppModule {}
